@@ -24,77 +24,6 @@ body {
     radial-gradient(circle at 20% 20%, rgba(255, 207, 92, 0.22), transparent 28rem),
     radial-gradient(circle at 80% 10%, rgba(255, 88, 88, 0.18), transparent 24rem),
     linear-gradient(135deg, #090a10 0%, #161421 48%, #090a10 100%);
-  overflow-x: hidden;
-}
-
-.ambient {
-  position: fixed;
-  border-radius: 999px;
-  filter: blur(6px);
-  opacity: 0.58;
-  pointer-events: none;
-  transform: translate3d(0, 0, 0);
-}
-
-.ambient-one {
-  width: 36rem;
-  height: 36rem;
-  left: -12rem;
-  top: 10vh;
-  background: radial-gradient(circle, rgba(255, 207, 92, 0.22), transparent 66%);
-  animation: drift-one 14s ease-in-out infinite alternate;
-}
-
-.ambient-two {
-  width: 34rem;
-  height: 34rem;
-  right: -10rem;
-  top: 4vh;
-  background: radial-gradient(circle, rgba(255, 80, 126, 0.22), transparent 68%);
-  animation: drift-two 16s ease-in-out infinite alternate;
-}
-
-.orbital {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.tile {
-  position: absolute;
-  display: block;
-  width: 92px;
-  height: 128px;
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 22px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
-    rgba(255, 255, 255, 0.04);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(16px);
-}
-
-.tile-one {
-  left: 14vw;
-  top: 26vh;
-  animation: float-one 7s ease-in-out infinite;
-}
-
-.tile-two {
-  right: 13vw;
-  top: 32vh;
-  width: 76px;
-  height: 104px;
-  animation: float-two 8s ease-in-out infinite;
-}
-
-.tile-three {
-  left: 50%;
-  bottom: 10vh;
-  width: 66px;
-  height: 88px;
-  animation: float-three 9s ease-in-out infinite;
 }
 
 a {
@@ -102,8 +31,6 @@ a {
 }
 
 .site-header {
-  position: relative;
-  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -125,29 +52,16 @@ nav a {
   font-weight: 650;
 }
 
+nav {
+  display: flex;
+  gap: 22px;
+}
+
 nav a:hover {
   color: var(--text);
 }
 
-.logo,
-nav a,
-.button {
-  transition:
-    color 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease,
-    background 180ms ease;
-}
-
-.logo:hover,
-nav a:hover,
-.button:hover {
-  transform: translateY(-1px);
-}
-
 .hero {
-  position: relative;
-  z-index: 1;
   display: grid;
   min-height: calc(100vh - 92px);
   place-items: center;
@@ -162,7 +76,6 @@ nav a:hover,
   background: var(--panel);
   box-shadow: 0 24px 90px rgba(0, 0, 0, 0.36);
   backdrop-filter: blur(18px);
-  animation: card-in 720ms ease-out both;
 }
 
 .hero-card.narrow {
@@ -215,7 +128,6 @@ h1 {
 .button.primary {
   color: #171007;
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  box-shadow: 0 12px 34px rgba(255, 159, 28, 0.28);
 }
 
 .button.secondary {
@@ -245,85 +157,114 @@ h1 {
   border-color: rgba(255, 207, 92, 0.55);
 }
 
-@keyframes card-in {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.985);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.document-shell {
+  width: min(840px, calc(100% - 40px));
+  margin: 40px auto 80px;
 }
 
-@keyframes drift-one {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  to {
-    transform: translate3d(6rem, 2rem, 0) scale(1.08);
-  }
+.document-header {
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 32px;
 }
 
-@keyframes drift-two {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  to {
-    transform: translate3d(-5rem, 4rem, 0) scale(1.06);
-  }
+.document-header h1 {
+  max-width: 760px;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 1;
 }
 
-@keyframes float-one {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-10deg);
-  }
-
-  50% {
-    transform: translateY(-18px) rotate(-6deg);
-  }
+.updated {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
-@keyframes float-two {
-  0%,
-  100% {
-    transform: translateY(0) rotate(12deg);
-  }
-
-  50% {
-    transform: translateY(16px) rotate(8deg);
-  }
+.document-content {
+  padding-top: 18px;
 }
 
-@keyframes float-three {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0) rotate(7deg);
-  }
-
-  50% {
-    transform: translateX(-50%) translateY(-14px) rotate(12deg);
-  }
+.document-content section {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--panel-border);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 1ms !important;
-  }
+.document-content h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+}
+
+.document-content p,
+.document-content li {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.document-content p {
+  margin: 0;
+}
+
+.document-content p + p {
+  margin-top: 12px;
+}
+
+.document-content ul,
+.document-content ol {
+  margin: 12px 0 0;
+  padding-left: 24px;
+}
+
+.document-content strong {
+  color: var(--text);
+}
+
+.document-content a {
+  color: var(--accent);
+}
+
+.notice {
+  margin: 26px 0 4px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 207, 92, 0.45);
+  border-radius: 8px;
+  color: var(--muted);
+  background: rgba(255, 207, 92, 0.08);
+  line-height: 1.6;
+}
+
+.support-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0 38px;
+  border-top: 1px solid var(--panel-border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--muted);
 }
 
 @media (max-width: 640px) {
   .site-header {
     width: min(100% - 28px, 1120px);
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  .document-shell {
+    width: min(100% - 28px, 840px);
   }
 
   .hero {
@@ -332,23 +273,5 @@ h1 {
 
   .hero-card {
     border-radius: 24px;
-  }
-
-  .tile {
-    opacity: 0.48;
-  }
-
-  .tile-one {
-    left: -18px;
-    top: 22vh;
-  }
-
-  .tile-two {
-    right: -18px;
-    top: 18vh;
-  }
-
-  .tile-three {
-    display: none;
   }
 }
