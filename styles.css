@@ -334,6 +334,55 @@ h1 {
   margin-top: 22px;
 }
 
+.account-action-shell {
+  position: relative;
+  z-index: 1;
+  width: min(720px, calc(100% - 40px));
+  min-height: calc(100vh - 210px);
+  margin: 44px auto 72px;
+  padding: 24px 0;
+}
+
+.account-action-shell h1 {
+  max-width: 700px;
+  font-size: clamp(2.7rem, 8vw, 5.8rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.account-action-shell .button {
+  margin-top: 30px;
+}
+
+.account-action-icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 28px;
+  border: 1px solid rgba(103, 232, 249, 0.52);
+  border-radius: 8px;
+  place-items: center;
+  color: #67e8f9;
+  background: #082f49;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.account-action-help {
+  max-width: 620px;
+  margin: 30px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.account-support-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--accent);
+  font-weight: 750;
+}
+
 .site-footer {
   position: relative;
   z-index: 1;
@@ -438,6 +487,11 @@ h1 {
 
   .document-shell {
     width: min(100% - 28px, 840px);
+  }
+
+  .account-action-shell {
+    width: min(100% - 28px, 720px);
+    margin-top: 24px;
   }
 
   .hero {
