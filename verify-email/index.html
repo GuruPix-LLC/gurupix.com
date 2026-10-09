@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer" />
     <title>Verify your email - GuruPix</title>
-    <meta name="description" content="Open GuruPix to finish verifying your email." />
+    <meta name="description" content="Verify your GuruPix email address." />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
@@ -18,17 +18,25 @@
       </nav>
     </header>
 
-    <main class="account-action-shell" data-account-link="verify-email">
+    <main class="account-action-shell" data-email-verification>
       <div class="account-action-icon" aria-hidden="true">&#10003;</div>
       <p class="eyebrow">Secure account verification</p>
-      <h1>Open GuruPix to verify your email</h1>
-      <p class="lede" data-link-status>Checking your secure verification link...</p>
-      <a class="button primary" data-open-app hidden>Open GuruPix</a>
-      <p class="account-action-help">
-        If GuruPix is not installed on this device, open the original email on a
-        device where you have the app. You can also request a new link from the
-        verification screen.
-      </p>
+      <h1 data-verification-title>Verifying your email</h1>
+      <p class="lede" data-verification-status>Please wait while we confirm your secure link.</p>
+
+      <div class="account-success" data-verification-success hidden>
+        <h2>Email verified</h2>
+        <p>Your email address is confirmed. Return to GuruPix to continue finding your next pick.</p>
+        <a class="button primary" href="gurupix://">Open GuruPix</a>
+      </div>
+
+      <div class="account-success" data-verification-error hidden>
+        <h2>We could not verify this link</h2>
+        <p data-verification-error-message>
+          Request a new verification email from GuruPix and try again.
+        </p>
+        <a class="button primary" href="gurupix://verify-email">Open GuruPix</a>
+      </div>
       <a class="account-support-link" href="../support/">Contact support</a>
     </main>
 
@@ -36,6 +44,6 @@
       <span>&copy; 2026 GuruPix LLC</span>
       <a href="../index.html">Home</a>
     </footer>
-    <script src="../account-link.js"></script>
+    <script src="../verify-email.js"></script>
   </body>
 </html>
