@@ -264,6 +264,32 @@ h1, h2, h3, p { letter-spacing: 0; }
   padding: 24px 0;
 }
 .account-action-shell .button { margin-top: 30px; }
+.account-form {
+  display: grid;
+  width: min(520px, 100%);
+  gap: 10px;
+  margin-top: 30px;
+}
+.account-form label { margin-top: 10px; font-size: 0.94rem; font-weight: 800; }
+.account-form input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  background: var(--surface-raised);
+  font: inherit;
+}
+.account-form input:focus { border-color: var(--accent); outline: 2px solid rgba(245, 163, 10, 0.2); }
+.account-form .button { width: fit-content; margin-top: 14px; font: inherit; cursor: pointer; }
+.account-form .button:disabled { cursor: wait; opacity: 0.65; }
+.field-hint, .form-error { margin: 0; font-size: 0.88rem; line-height: 1.45; }
+.field-hint { color: var(--muted); }
+.form-error { color: #fca5a5; }
+.account-success { max-width: 620px; margin-top: 30px; }
+.account-success h2 { margin: 0 0 12px; font-size: 1.7rem; }
+.account-success p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.65; }
 .account-action-icon {
   display: grid;
   width: 64px;

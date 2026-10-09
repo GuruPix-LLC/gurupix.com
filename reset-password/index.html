@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta name="referrer" content="no-referrer" />
     <title>Reset your password - GuruPix</title>
-    <meta name="description" content="Open GuruPix to choose a new password." />
+    <meta name="description" content="Choose a new password for your GuruPix account." />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
@@ -18,17 +18,45 @@
       </nav>
     </header>
 
-    <main class="account-action-shell" data-account-link="reset-password">
+    <main class="account-action-shell" data-password-reset>
       <div class="account-action-icon" aria-hidden="true">&#128273;</div>
       <p class="eyebrow">GuruPix account recovery</p>
-      <h1>Open GuruPix to reset your password</h1>
-      <p class="lede" data-link-status>Checking your secure reset link...</p>
-      <a class="button primary" data-open-app hidden>Open GuruPix</a>
-      <p class="account-action-help">
-        If GuruPix is not installed on this device, open the original email on a
-        device where you have the app. You can request another link from the
-        sign-in screen if this one has expired.
-      </p>
+      <h1>Choose a new password</h1>
+      <p class="lede" data-reset-status>Enter a new password for your GuruPix account.</p>
+
+      <form class="account-form" data-reset-form>
+        <label for="new-password">New password</label>
+        <input
+          autocomplete="new-password"
+          id="new-password"
+          minlength="8"
+          maxlength="128"
+          name="new-password"
+          required
+          type="password"
+        />
+        <p class="field-hint">Use at least 8 characters.</p>
+
+        <label for="confirm-password">Confirm new password</label>
+        <input
+          autocomplete="new-password"
+          id="confirm-password"
+          minlength="8"
+          maxlength="128"
+          name="confirm-password"
+          required
+          type="password"
+        />
+        <p class="form-error" data-reset-error role="alert" hidden></p>
+        <button class="button primary" data-reset-submit type="submit">Update password</button>
+      </form>
+
+      <div class="account-success" data-reset-success hidden>
+        <h2>Password updated</h2>
+        <p>Your password has been changed. Return to GuruPix and sign in with your new password.</p>
+        <a class="button primary" href="gurupix://login">Open GuruPix</a>
+      </div>
+
       <a class="account-support-link" href="../support/">Contact support</a>
     </main>
 
@@ -36,6 +64,6 @@
       <span>&copy; 2026 GuruPix LLC</span>
       <a href="../index.html">Home</a>
     </footer>
-    <script src="../account-link.js"></script>
+    <script src="../reset-password.js"></script>
   </body>
 </html>
